@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Object.defineProperty(1,2,3)
+            - 参数1:需要添加属性的对象
+            - 参数2:被添加的属性的key
+            - 参数3:一个对象 是添加属性的描述 里边的属性描述默认都是false
+
+        */
+
+
+        //1.给一个object.create创建的对象扩展
+        var newObj1 = Object.create(null, {
+            name: {
+                value: "laoli",
+                writable: false,
+                enumerable: false,
+                configurable: false
+            }
+        })
+
+        //给newObj扩展一些属性，如果使用普通的扩展方法 无法设置属性描述符
+        //可以使用defineProperty设置 里边的属性描述默认都是false
+        Object.defineProperty(newObj1, "age", {
+            value: 19,
+            writable: true,
+            enumerable: false,
+            configurable: false
+        })
+        newObj1.age = 20;
+        console.log(newObj1);
+
+
+        //2.给一个普通的对象扩展
+
+        var newObj2 = {
+            name: "laoli"
+        };
+        Object.defineProperty(newObj2, "age", {
+            value: 20
+        })
+        console.log(newObj2)
+        //使用defineProperty添加的属性不可以被修改枚举 需要听属性描述符的
+        newObj2.age = 21;
+        //但是普通添加的属性是可以正常操作的
+        newObj2.name = "laozhang";
+        console.log(newObj2)
+    </script>
+</body>
+
+</html>

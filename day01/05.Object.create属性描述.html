@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Object.create(prototype,description);
+            - 创建一个对象
+            - prototype 创建好新对象的原型对象，可以是一个对象或者null  必写
+            - 当前对象的属性 以及是对当前属性的描述（当前属性的属性）
+                - value:当前属性的值
+                - writable:当前属性值是否可以被修改 默认false
+                - enumerable:当前属性值是否可以被枚举 默认是false
+                - configurable:控制当前属性是否可以被删除 和 当前属性的描述是否可以被修改
+        */
+
+
+        var newObj1 = Object.create(null, {
+            name: {
+                value: "laoli",
+                writable: false,
+                enumerable: false,
+                configurable: false
+            },
+            age: {
+                value: 12,
+                writable: false,
+                enumerable: false,
+                configurable: false
+            }
+        })
+
+        //修改对象属性
+        newObj1.name = "laozhang";
+        console.log(newObj1)
+
+        //枚举对象的key
+        for (var key in newObj1) {
+            console.log(key)
+        }
+
+        //删除对象属性
+        delete newObj1.name;
+        console.log(newObj1)
+
+
+        //直接用普通方法给对象创建属性,是可以被正常删除修改枚举的
+        newObj1.study = "es5";
+        console.log(newObj1)
+        //修改
+        newObj1.study = "es6";
+        console.log(newObj1)
+        //枚举
+        for (var key in newObj1) {
+            console.log(key)
+        }
+        //删除对象属性
+        delete newObj1.study;
+        console.log(newObj1)
+
+
+        for (var key in Array.prototype) {
+            console.log(key)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Object.create(prototype,description);
+            - 创建一个对象
+            - prototype 创建好新对象的原型对象，可以是一个对象或者null  必写
+        
+         */
+        //创建对象一定要指定当前新对象的原型对象
+        // var obj1 = Object.create();
+        // console.log(obj1); //Object prototype may only be an Object or null: undefined
+
+
+        //1.
+        //指定原型对象
+        var obj = {
+            type: "Object",
+            doThing: function () {
+                console.log("保存数据");
+            }
+        }
+
+        //新创建一个对象 把obj 当前做是它的原型对象
+        var newObj1 = Object.create(obj);
+        console.log(newObj1) //空对象，但是原型对象是obj
+        console.log(newObj1.type) //可以获取到
+
+
+        //2.创建一个干净的对象 没有任何原型
+        var newObj2 = Object.create(null);
+        console.log(newObj2);
+
+        //3.使用Object.create创建一个普通的对象
+        var newObj3 = Object.create(Object.prototype);
+        console.log(newObj3);
+    </script>
+</body>
+
+</html>
