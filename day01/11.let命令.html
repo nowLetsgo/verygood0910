@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            let命令：代替var 声明变量，所声明的变量只在当前的代码块内有效（实则为声明了块作用域）
+         */
+
+        /* 
+            1.减少使用全局变量
+                - 危险，容易被篡改
+                - 占用内存
+        
+         */
+        /* {
+            let a = 1;
+            console.log(a); //1
+        }
+        // console.log(a); //报错 获取不到块作用域的变量 */
+
+
+
+
+        /* 2.块作用域可以任意嵌套 */
+        /* {
+            let a = 1;
+            {
+                console.log(a);//1
+                let b = 2;
+                {
+                    {
+                        console.log(b);//2
+                    }
+                }
+            }
+        } */
+
+
+        //因为let声明的变量是不可以重复声明的，所以一下代码可以得到结论
+        //for中的i也不在for的代码块中声明
+        //for的小括号中是for循环的父级作用域，而for的代码块是子作用域
+        for (let i = 0; i < 3; i++) {
+            let i = "a";
+            console.log(i)
+        }
+        //排除for中let的i在全局
+        // console.log(i);
+
+
+
+        for (let i = 0; i < 3; i++) {
+            //每次父级作用域的i就会进入当前的块作用域，而块作用域是计时器函数的父作用域
+            //计时器的函数需要使用这个块作用域的变量i  所以形成了闭包
+            setTimeout(function () {
+                console.log(i); //0 1 2 
+            })
+        }
+    </script>
+</body>
+
+</html>

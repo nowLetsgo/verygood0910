@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数作用域
+        /* function fn() {
+            var a = 2;
+        }
+        fn();
+        console.log(a); //报错 */
+
+
+        //块作用域（花括号就是一个代码块）
+        if (false) {
+            var a = 1;
+        }
+        console.log(a); //undefined
+
+
+        /* for (let i = 0; i < 3; i++) {
+            setTimeout(function () {
+                console.log(i)
+            })
+        } */
+    </script>
+</body>
+
+</html>
