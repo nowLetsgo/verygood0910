@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            严格模式可以提高js解析的性能，也可以提高js运行速度，
+            使用方法是 在全局作用域或者局部作用域的首行 书写一个 'use strict'
+         */
+        "use strict";
+
+        //1.严格模式下 变量必须声明才能使用
+        // a = "我不想声明";
+        // console.log(a);
+
+
+        //2.禁止自定义函数自己调用的时候 this指向window,应该指向undefined
+        /* var fn2 = function () {
+            console.log(this)
+        }
+        fn2(); //undefined */
+
+
+        //3.开启eval作用域
+        var b = 3;
+        eval("var b;alert(b)")
+
+
+        function fn() {
+            // "use strict";
+        }
+    </script>
+</body>
+
+</html>

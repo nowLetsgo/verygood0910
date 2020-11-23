@@ -1,0 +1,9 @@
+{
+    "student":[
+        {"name":"xiaowang","sex":"nan","age":18},
+        {"name":"xiaozhang","sex":"nv","age":20}
+    ],
+    "teacher":[
+        {"name":"xiaowang","sex":"nan","age":18}
+    ]
+}

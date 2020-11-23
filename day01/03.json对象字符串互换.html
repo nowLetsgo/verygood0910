@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            "student": [{
+                    "name": "xiaowang",
+                    "sex": "nan",
+                    "age": 18
+                },
+                {
+                    "name": "xiaozhang",
+                    "sex": "nv",
+                    "age": 20
+                }
+            ],
+            "teacher": [{
+                "name": "xiaowang",
+                "sex": "nan",
+                "age": 18
+            }]
+        }
+
+        //未来 前后端传递数据或者本地保存一些数据，当这个数据是一个JSON对象的时候，需要转换成字符串保存。当前取用的时候再转换为对象格式。
+
+        //JSON.stringify() 将对象转换为字符串
+        var result = JSON.stringify(obj);
+        console.log(result)
+        console.log(typeof result)
+
+
+        //JSON.parse() 将Json字符串 转为 对象
+        var newObj = JSON.parse(result);
+        console.log(newObj)
+    </script>
+</body>
+
+</html>
