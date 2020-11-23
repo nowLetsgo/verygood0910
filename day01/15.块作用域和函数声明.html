@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            在函数声明所在的是函数作用域还是块作用域方面
+                因为规范规定可以各个浏览器有自己的规定
+                所以这个问题不需要太多考虑
+
+            一般来说函数声明都会直接写在全局或者说某个函数中，几乎不写在块作用域中
+            如果必要的情况下想要在块作用域中声明函数，请使用函数表达式
+        
+         */
+        if (true) {
+            //不要在块作用域中书写这样的函数声明
+            function fn() {
+                console.log(1)
+            }
+
+            //如果必要的情况下想要在块作用域中声明函数，请使用函数表达式
+            /* const fn1 = function () {
+                console.log(2)
+            } */
+        }
+        fn();
+    </script>
+</body>
+
+</html>

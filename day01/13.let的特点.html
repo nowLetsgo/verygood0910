@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            let特点：
+            1.没有声明提升
+            2.在同一个作用域中不可以重复声明
+            3.IIFE的作用其实是构成一个新的作用域，但是有let之后可以使用代码块取代
+         */
+
+        {
+            console.log(a); //Cannot access 'a' before initialization
+            let a = 1;
+        }
+
+
+        {
+            let a = 1;
+            let a = 2; //Identifier 'a' has already been declared
+        }
+
+
+
+        (function () {
+            var a = 1;
+        })()
+
+        {
+            let a = 1;
+        }
+    </script>
+</body>
+
+</html>

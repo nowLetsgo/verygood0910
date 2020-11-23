@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            数组的解构赋值：掌握好一一对应关系
+         */
+
+        //原始方法
+        /* const arr = [1, 2, 3, 4, 5];
+        let a, b, c, d, e;
+        a = arr[0];
+        b = arr[1];
+        c = arr[2];
+        d = arr[3];
+        e = arr[4];
+        console.log(a, b, c, d, e) */
+
+
+        //1.解构赋值操作
+        /* const arr = [1, 2, 3, 4, 5];
+        //声明了变量 并且通过一一对应的关系找到了每个变量的值
+        let [a, b, c, d, e] = arr;
+        console.log(a, b, c, d, e) */
+
+
+
+        //2.解构失败
+        /* let [a, b] = [1];
+        console.log(a, b); //1 undefined */
+
+        //3.不完全解构 可以成功
+        /* let [a] = [1, 2];
+        console.log(a); */
+
+        //4.可以给解构赋值 设置默认值
+        //如果b能解构 则b是解构出来的值，如果不能则给b一个默认值
+        /* let [a = 0, b = 0] = [1]
+        console.log(a, b); //1 0 */
+
+
+        //5.可以使用rest参数,当不完全解构的话，可以使用rest参数保存没有解构的值（是一个数组）
+        //rest参数必须是最后一个
+        /* let [a, b, ...rest] = [1, 2, 3, 4, 5, 6]
+        console.log(a, b, rest) //1 2 [3,4,5,6] */
+
+        //6.多维数组也可以解构 前提是一一对应
+        /* let [a, b, [c, [d, e], f], g] = [1, 2, [3, [4, 5], 6], 7]
+        console.log(a, b, c, d, e, f, g) */
+
+
+        //练习：交换两个变量的值
+        /* let a = 1;
+        let b = 2;
+        let c = a;
+        a = b;
+        b = c; */
+
+        /* let a = 1;
+        let b = 5;
+        a = b - a;
+        b = b - a;
+        a = a + b;
+        console.log(a, b); */
+
+
+        /* let a = 1;
+        let b = 2;
+        [b, a] = [a, b]
+        console.log(a, b); */
+
+
+        //练习2：
+        let [a = b, b = 2] = [];
+        console.log(a, b) //报错
+    </script>
+</body>
+
+</html>

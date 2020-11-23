@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            常量：不会变化的数据，有些时候有的数据是不允许修改的，所以需要定义常量
+            使用 const关键字定义常量
+
+
+            在日常开发中，到底是优先使用let还是const
+                - 优先使用const 声明常量  当某个变量需要被修改，则再修改为let
+        */
+
+        //1.const声明的是只读的常量
+        // const PI = 3.1415926;
+        // console.log(PI)
+
+        //2.常量不允许被修改，修改就错了
+        // PI = 3.14; //Assignment to constant variable
+
+
+        //3.如果常量是一个对象，那么可以修改对象内的内容，只要不把地址值更换了都可以
+        /* const person = {
+            name: "张三",
+            age: 12,
+            sex: "女"
+        }
+        // person = 1;//报错
+        person.intr = "写代码";
+        console.log(person) */
+
+
+        //4.常量声明的时候必须赋值
+        /* const PI;//Missing initializer in const declaration
+        PI = 3.14; */
+
+        //5.const 声明的常量是块作用域
+        /*  {
+             const a = 2;
+         }
+         console.log(a); //报错 */
+
+
+        //6.没有声明提升
+        /* {
+            console.log(b); //报错
+            const b = 1;
+        } */
+
+        // 7.不允许重复声明
+        /* {
+            const a = 1;
+            const a = 2; //报错
+        } */
+
+
+        //8.let和const如果声明的是全局变量，则不再属于window对象的属性，ES6开始，全局变量和window对象慢慢脱节
+        let a = 1;
+        console.log(window.a); //undefined
+    </script>
+</body>
+
+</html>
