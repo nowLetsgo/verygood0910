@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //存储器属性的 取 当取的数据是其他数据结合生成的 我们可以使用getter
+        var goodData = {
+            singlePrice: 30,
+            num: 20,
+            get totalPrice() {
+                return this.singlePrice * this.num
+            }
+            /* totalPrice() {
+                return this.singlePrice * this.num
+            } */
+        }
+
+        // console.log(goodData.totalPrice())
+        console.log(goodData.totalPrice)
+
+
+
+        //存取
+        var person = {
+            firstName: "lao",
+            lastName: "li",
+            get fullName() {
+                return this.firstName + this.lastName;
+            },
+            set fullName(value) {
+                //setter中的参数 就是设置的新值
+                console.log(value);
+                /* var newArr = value.split(" ");
+                this.firstName = newArr[0];
+                this.lastName = newArr[1]; */
+                [this.firstName, this.lastName] = value.split(" ");
+
+            }
+        }
+
+        console.log(person.fullName)
+
+        //设置全名
+        person.fullName = "xiao zhang";
+        console.log(person)
+    </script>
+</body>
+
+</html>

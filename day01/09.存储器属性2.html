@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.给一个object.create创建的对象扩展
+        var newObj1 = Object.create(null, {
+            firstName: {
+                value: "xiao",
+                writable: true
+            },
+            lastName: {
+                value: "wang",
+                writable: true
+            }
+        })
+
+        Object.defineProperty(newObj1, "fullName", {
+            get() {
+                return this.firstName + this.lastName;
+            },
+            set(value) {
+                [this.firstName, this.lastName] = value.split(" ");
+            }
+        })
+        console.log(newObj1.fullName)
+        newObj1.fullName = "lao li"
+        console.log(newObj1.fullName)
+    </script>
+</body>
+
+</html>
