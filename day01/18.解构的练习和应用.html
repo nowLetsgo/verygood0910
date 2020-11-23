@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.如果想要获取数组的第一个和最后一个值怎么办(使用解构赋值)
+        /* const arr = [1, 2, 3, 4, 5];
+        const l = arr.length - 1;
+        const {
+            [0]: a,
+            [l]: b
+        } = arr;
+        console.log(a, b) */
+
+
+        /* const {
+            [0]: a, [1]: b
+        } = [1, 2];
+        console.log(a, b) //1 2 */
+
+
+        //2.log是consle对象的一个方法
+
+        /* const {
+            log
+        } = console;
+
+        log(1);
+        log("hello world"); */
+
+
+        //3.函数返回对象获取
+
+        /* function fn() {
+            return {
+                l: 200,
+                t: 100
+            };
+        }
+        const {
+            l,
+            t
+        } = fn() */
+
+
+        //4.函数传参
+        /* const arr = [1, 2, 3];
+
+        function fn2([x, y, z]) {
+            console.log(x + y + z);
+        }
+        fn2(arr); */
+
+
+        //对象传参
+        const teacher = {
+            name: "小宁姐",
+            age: 12,
+            sex: "nv"
+        }
+
+        function myself({
+            name,
+            age,
+            sex
+        }) {
+            console.log("我的名字是" + name)
+            console.log("我的年龄是" + age)
+            console.log("我的性别是" + sex)
+        }
+        myself(teacher)
+    </script>
+</body>
+
+</html>

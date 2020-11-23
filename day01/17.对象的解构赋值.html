@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            对象的解构赋值：掌握好key值的对应关系
+         */
+
+        //1.对象解构
+        /* const obj = {
+            name: "xiaowang",
+            age: 12
+        }
+        //对象解构中，前边的name是用来和obj找对应关系的，后边的name才是你声明的变量
+        const {
+            age: age,
+            name: name
+        } = obj
+        console.log(name, age) */
+
+
+        //2.对象解构--简写
+
+        /*  const obj = {
+             name: "xiaowang",
+             age: 12
+         }
+         //对象解构中，前边的name是用来和obj找对应关系的，后边的name才是你声明的变量
+         const {
+             age,
+             name
+         } = obj
+         console.log(name, age) */
+
+
+
+        //当对象的key和value同名的时候，可以简写一个即可
+        /* const name = "xiaowang";
+        const age = 12;
+        const obj = {
+            name,
+            age
+        }
+        console.log(obj) */
+
+
+        //3.对象解构可以设置默认值
+        /* const obj = {
+            name: "xiaowang",
+            age: 12
+        }
+        const {
+            name = "xiaoli", age = 18, sex = "nan"
+        } = obj;
+        console.log(name, age, sex) */
+
+
+        //4.对象和数组解构可以嵌套
+        /* const obj = {
+            name: "xiaowang",
+            score: [100, 20]
+        }
+        const {
+            name,
+            score: [a, b]
+        } = obj;
+        console.log(name, a, b) */
+
+
+        //4.可以使用rest参数
+        /* const obj = {
+            name: "xiaowang",
+            age: 12,
+            sex: "nan"
+        }
+        const {
+            name,
+            ...rest
+        } = obj;
+        console.log(name, rest) */
+
+
+        
+    </script>
+</body>
+
+</html>
