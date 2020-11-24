@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //练习1
+        /*  const person = [{
+                user: "小张",
+                sex: "男"
+            },
+            {
+                user: "小李",
+                sex: "女"
+            },
+            {
+                user: "小黄",
+                sex: "男"
+            },
+            {
+                user: "小王",
+                sex: "女"
+            },
+            {
+                user: "小柳",
+                sex: "男"
+            },
+            {
+                user: "小熊",
+                sex: "女"
+            },
+        ]; */
+
+        /* //请得到所有性别为女的用户的名字，并放在数组中
+        const newP = person.filter(function (item) {
+            return item.sex === '女';
+        })
+        console.log(newP);
+        const re = newP.map(function (item) {
+            return item.user;
+        })
+        console.log(re) */
+
+
+        /* //请得到所有性别为女的用户的名字，并放在数组中
+        const re = person.reduce(function (p, c) {
+            if (c.sex === "女") {
+                p.push(c.user)
+            }
+            return p;
+        }, []);
+        console.log(re); */
+
+
+
+
+        //练习2
+        // 求数组的最大值
+        // const arr = [3, 5, 2, 6, 4, 5, 1];
+        /* const re = arr.reduce(function (p, c) {
+            // return Math.max(p, c);
+            return p > c ? p : c;
+        })
+        console.log(re); */
+
+
+        // console.log(Math.max(...arr));
+
+
+
+        //练习3：数组去重
+        /* const arr = [1, 3, 1, 5, 3, 2, 7, 5, 7, 5];
+        const re = arr.reduce(function (p, c) {
+            p.includes(c) || p.push(c);
+            // !p.includes(c) && p.push(c);
+            return p;
+        }, []);
+        console.log(re);
+ */
+
+        //代替some 检测里边有没有偶数，如果有则返回true
+        /* const arr = [1, 2, 5, 7, 6, 2, 1];
+        const re = arr.reduce(function (p, c) {
+            c % 2 === 0 ? p = true : p = false;
+            return p;
+
+        }, false);
+        console.log(re); */
+    </script>
+</body>
+
+</html>
