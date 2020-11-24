@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            String对象新方法：
+                trim: 首尾去空格
+                trimStart: 开头去空格
+                trimEnd: 末尾去空格
+
+                startsWith: 判断有没有以某个字符串为开头
+                endsWith:判断有没有以某个字符串为结尾
+                includes:判断有没有包含某个字符串
+                indexOf:判断有没有包含某个字符串，如果存在则返回这个字符串第一次出现的下标，否则返回-1
+        
+                repeat:重复当前字符串 可以规定次数
+
+                padStart: 当字符串不够某个长度的时候，在字符串前补充任意字符
+                padEnd:当字符串不够某个长度的时候，在字符串后补充任意字符
+         */
+
+        const str = "   12 3 4  5     ";
+        const newStr1 = str.trim();
+        console.log(newStr1)
+        const newStr2 = str.trimStart();
+        console.log(newStr2)
+        const newStr3 = str.trimEnd();
+        console.log(newStr3)
+
+
+        const str2 = "hello world";
+        const re1 = str2.startsWith("he")
+        console.log(re1) //true
+        const re2 = str2.endsWith("ld")
+        console.log(re2) //true
+        const re3 = str2.includes("wor");
+        console.log(re3)
+
+
+        const str3 = "静哥哥，你真sao~";
+        const re4 = str3.repeat(10);
+        console.log(re4)
+
+
+        const str4 = "静哥哥sao~";
+        const re5 = str4.padStart(10, "#!@#@$$@#$#^$#")
+        console.log(re5);
+        const re6 = str4.padEnd(20, "#!@#@$$@#$#^$#")
+        console.log(re6);
+    </script>
+</body>
+
+</html>

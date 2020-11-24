@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <!-- 
+        模板字符串：
+            字符串的增强版：
+                可以嵌套变量 可以换行等 使用的是 反引号 ``
+
+     -->
+    <script>
+        //可以嵌套单引号双引号
+        const str = `hello wo"r"l''d`;
+        const str2 = `hel\\lo w\`orld`;
+        console.log(str2)
+
+        //${}中可以书写表达式 不可以书写语句
+        function fn() {
+            return 3;
+        }
+        const flag = false;
+        const str3 = `hel${flag?1:2}lo`;
+        const str4 = `hel${fn()}lo`;
+        console.log(str4)
+
+
+        //案例
+        const obj = {
+            name: "xiaowang",
+            sex: "nan",
+            age: 19,
+            hobby: "篮球 rap"
+        }
+
+        const content = `
+            <ul>
+                <li>${obj.name}</li>
+                <li>${obj.sex}</li>
+                <li>${obj.age}</li>
+                <li>${obj.hobby}</li>
+            </ul>
+        `;
+        document.getElementById('box').innerHTML = content;
+    </script>
+
+</body>
+
+</html>
