@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            entries：可以遍历 数组的 键值对的 遍历器
+            keys 数组的 键名 遍历器
+            values 数组的 值 遍历器
+        
+         */
+
+
+        const arr = ["a", "b", "c", "d"];
+        const entr = arr.entries();
+        for (let c of entr) {
+            console.log(c);
+        }
+
+
+        console.log(arr.keys());
+        const key = arr.keys();
+        for (let c of key) {
+            console.log(c);
+        }
+
+        console.log(arr.values());
+        const value = arr.values();
+        for (let c of value) {
+            console.log(c);
+        }
+    </script>
+</body>
+
+</html>

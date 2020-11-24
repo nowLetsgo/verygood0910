@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            reduce():
+                累加
+                - 回调函数
+                    - 初始值或者上一次回调函数的返回值
+                    - 本次遍历数组的值
+                    - 本次值的下标
+                    - 原数组
+                - 初始值
+                    - 如果初始值省略，第一次进入函数的是 数组的 下标0 和 1的值，数组会少一次遍历
+                
+
+        
+         */
+
+
+        /* const arr = [1, 2, 3, 4, 5]
+        //测试
+        arr.reduce(function (p, c, index, arr) {
+            console.log(p, c)
+            return "a"
+        }, 0) */
+
+
+        /* const arr = [1, 2, 3, 4, 5];
+        const re = arr.reduce(function (p, c) {
+            return p + c;
+        });
+        console.log(re); */
+
+
+        /* const url = "http://www.baidu.com?user=laoli&pass=123&tel=15701665563";
+        const obj = {};
+        url.split("?")[1].split("&").forEach(function (item, index) {
+            const [key, value] = item.split("=");
+            obj[key] = value;
+        })
+        console.log(obj) */
+
+
+
+        /* const url = "http://www.baidu.com?user=laoli&pass=123&tel=15701665563";
+        const re = url.split("?")[1].split("&").reduce(function (p, c) {
+            const [key, value] = c.split("=");
+            p[key] = value;
+            return p;
+        }, {})
+        console.log(re) */
+    </script>
+</body>
+
+</html>
