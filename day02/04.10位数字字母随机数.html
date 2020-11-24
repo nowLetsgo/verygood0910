@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            toString():
+                - 转字符串
+                - 进制转换  可以将一个数字转换为n进制的值  返回一个字符串
+        
+        
+        */
+
+        /* const a = 255;
+        console.log(a.toString(16)); //ff */
+
+
+
+        /* 
+            生成一个36进制的值
+                - 生成[0,36)的一个正整数
+                - 转换成36进制
+         */
+        let str = "";
+        for (let i = 0; i < 10; i++) {
+            //首先生成0-36的随机数
+            const num = Math.floor(Math.random() * 36)
+            //把生成的数字转换为36进制
+            console.log(num.toString(36));
+            str += num.toString(36);
+        }
+        console.log(str);
+
+
+
+        /* 
+            生成一个永远不重复的ID
+         */
+        console.log(Date.now().toString(36))
+        console.log((Date.now() + +Math.random().toString().slice(2)).toString(36))
+    </script>
+</body>
+
+</html>

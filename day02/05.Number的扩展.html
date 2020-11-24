@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Number.isFinite(i) : 判断是否是有限大的数  如果是有限大的 则返回true   否则返回false
+            Number.isNaN(i) : 判断是否是NaN
+                - isNaN是全局方法，先通过Number方法把里边的内容转成数字。再判断是不是NaN
+                - Number.isNaN(i)  是真的检测这个是不是NaN 不会转换类型  类似于NaN === NaN
+            Number.isInteger(i) : 判断是否是整数
+            Number.parseInt(str) : 将字符串转换为对应的数值
+                - 和全局parseInt是同一个函数
+         */
+
+        let num = 2 ** 1024;
+        console.log(Number.isFinite(num));
+
+
+        let num2 = 0 / 0;
+        console.log(Number.isNaN(num2));
+
+        console.log(Number.isInteger(3))
+        console.log(Number.isInteger(-3))
+        console.log(Number.isInteger(3.1))
+
+        console.log(Number.parseInt("123x")) //123
+        console.log(Number.parseInt("a123x")) //NaN
+    </script>
+</body>
+
+</html>
