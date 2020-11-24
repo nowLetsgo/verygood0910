@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Array.from: 将伪数组转为数组
+        
+         */
+
+        function fn() {
+            console.log(arguments);
+            console.log(Array.from(arguments));
+        }
+        fn(1, 2, 3)
+
+        const likeArr = {
+            0: "a",
+            1: "b",
+            2: "c",
+            length: 3
+        }
+        console.log(Array.from(likeArr))
+
+
+
+        /* 
+        
+            Array.of():创建一个新的数组
+                - 和 new Array类似，不同的是 Array.of传1个参数的时候，这个参数仍然是数组的值，而不是长度
+        
+         */
+
+        const arr1 = new Array(3);
+        console.log(arr1)
+        const arr2 = Array.of(3);
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

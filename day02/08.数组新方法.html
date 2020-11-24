@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Array.prototype.copyWithIn();
+                - 参数1：开始覆盖的位置
+                - 参数2：开始复制的位置
+                - 参数3：结束复制的位置（省略则代表末尾），不包含当前下标
+                - 修改原数组并返回新数组的引用
+        
+        */
+
+        const arr = ["a", "b", "c", "d", "e", "f", "n", "l"];
+        const re = arr.copyWithin(0, 4, 6);
+        console.log(re);
+        console.log(arr);
+
+
+        /* 
+            fill():填充数组 
+                - 修改原数组并返回新数组的引用
+                - 参数1：填充数组的内容
+                - 参数2：填充的起始位置（可省略）
+                - 参数3：填充的结束位置（可省略）（不包含）
+         */
+
+        const arr2 = [1, 2, 3, 4];
+        // const re2 = arr2.fill(false);
+        const re2 = arr2.fill(false, 1, 3);
+        console.log(re2);
+        console.log(arr2);
+        console.log(arr2 === re2);
+
+
+        /* 
+            find:是查找第一个符合条件的值
+            findIndex：是查找第一个符合条件的值的下标
+         */
+
+        const arr3 = [1, 3, 8, 4, 5, 3, 7];
+        //找到数组中的第一个偶数
+        const re3 = arr3.find(function (item, index) {
+            return item % 2 === 0;
+        })
+        console.log(re3);
+        //找到数组中的第一个的下标
+        const re4 = arr3.findIndex(function (item, index) {
+            return item % 2 === 0;
+        })
+        console.log(re4);
+
+
+        const p = [{
+                name: "xiaowag1",
+                age: 18,
+                sex: "nan"
+            },
+            {
+                name: "xiaowag2",
+                age: 28,
+                sex: "nan"
+            },
+            {
+                name: "xiaowag3",
+                age: 38,
+                sex: "nan"
+            },
+            {
+                name: "xiaowag4",
+                age: 48,
+                sex: "nan"
+            },
+            {
+                name: "xiaowag5",
+                age: 58,
+                sex: "nan"
+            },
+        ]
+        //找到第一个年龄30-40之间的人
+        const re5 = p.find(function (item, index) {
+            return item.age >= 30 && item.age <= 40;
+        })
+        console.log(re5)
+
+
+        /* 
+            includes()判断数组中是否有某一个元素
+        
+         */
+
+        const arr6 = [1, 2, [3], 4];
+        console.log(arr6.includes(2)); //true
+        console.log(arr6.includes([3])); //false
+
+
+        /* 
+            flat():拉平数组(数组扁平化)
+                - 参数是number类型 标识拉平数组的层数
+        
+         */
+
+        const arr7 = [1, 2, [3, [4, [5]]]];
+        console.log(arr7.flat())
+        console.log(arr7.flat(3))
+        console.log(arr7.flat(Infinity))
+    </script>
+</body>
+
+</html>

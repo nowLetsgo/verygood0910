@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            ...扩展运算符 也叫三点运算符 用来展开数组（能展开具有iterator接口的类型）
+            需要在方法中传入参数用 或者在数组中使用 
+        */
+        const arr = [1, 2, 3, 4];
+        //rest参数
+        let [a, ...rest] = arr;
+
+        //... 是rest参数的逆运算  把数组展开
+        console.log(...arr)
+        //不能直接用下边的方式获取
+        /* let re1 = ...arr;
+        console.log(re1) */
+
+
+        //作用1 ：复制数组
+        const arr2 = [1, 2, 3, 4];
+        const arr3 = [...arr2];
+        console.log(arr3)
+
+        //作用2 合并数组
+        const arr4 = [9, 8, 7];
+        const arr5 = [...arr2, ...arr4]
+        console.log(arr5)
+
+        //展开字符串（字符串转数组）
+        const str = "hello";
+        const arr6 = [...str];
+        const arr7 = [1, 2, 3, ...str, 4, 5, 6];
+        console.log(arr6)
+        console.log(arr7)
+
+
+        //函数传参
+        function fn() {
+            console.log(arguments);
+        }
+        //将str拆分 并传参
+        fn(...str)
+    </script>
+</body>
+
+</html>
