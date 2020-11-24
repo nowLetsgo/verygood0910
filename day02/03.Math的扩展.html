@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Math.pow(a,b):求a的n次方
+                - ES11新出了一个 求次方根的操作符  **
+                - a ** b 求a的b次方
+                - a**b**c 由右至左运算
+        
+         */
+
+        const num1 = Math.pow(2, 3);
+        const num2 = Math.pow(3, 3);
+        console.log(num2);
+
+        console.log(3 ** 3)
+        console.log(2 ** 3 ** 3)
+        console.log(2 ** 27)
+
+
+
+        /* 
+            进制写法：
+                二进制：0b开头
+                八进制：0o 开头
+                十六进制：0x开头
+         */
+
+        const num3 = 0b1111;
+        console.log(num3)
+
+        const num4 = 0o10;
+        console.log(num4)
+
+        const num5 = 0xff;
+        console.log(num5)
+
+
+        /* 
+            Math.trunc():去掉数字的小数部分
+            Math.sign():检测正负数0和NaN  如果是正：1  负：-1  0:0  NaN:NaN
+            Math.sqrt():平方根
+            Math.cbrt():立方根
+            Math.hypot(3, 4):求所有参数的平方和的平方根
+         */
+
+        console.log(Math.trunc(3.1415926)) //3
+        console.log(Math.trunc("3.1415926")) //3
+        console.log(Math.trunc("3.1415926a")) //NaN
+        console.log(Math.trunc(true)) //1
+
+
+        console.log(Math.sign(-3))
+        console.log(Math.sign(3))
+        console.log(Math.sign(0))
+        console.log(Math.sign(NaN))
+        console.log(Math.sign(Infinity))
+        console.log(Math.sign(10E10))
+
+
+        console.log(Math.sqrt(4))
+        console.log(Math.sqrt(9))
+
+        console.log(Math.cbrt(27))
+        console.log(Math.cbrt(8))
+
+
+        const a = 3; //一边3
+        const b = 4; //一边4
+        console.log(Math.hypot(3, 4)) //5
+    </script>
+</body>
+
+</html>
