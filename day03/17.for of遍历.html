@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            for ...of:
+                遍历得到是value  原理是通过Iterator对象遍历的
+
+            for in:
+                遍历得到的是key  并且不是统一的  一般用于对象
+
+        
+        
+         */
+
+        const str = "abcd";
+        const arr = ["a", "b", "c", "d"]
+        const set = new Set(["a", "b", "c", "d"]);
+        const map = new Map([
+            [
+                [1, 2], "hello"
+            ],
+            ["mes", "value"],
+        ])
+        const obj = {
+            name: "laowang",
+            sex: "nv"
+        }
+
+        for (let v of str) {
+            console.log(v);
+        }
+
+        for (let v of arr) {
+            console.log(v);
+        }
+
+        for (let v of set) {
+            console.log(v);
+        }
+
+        for (let v of map) {
+            console.log(v);
+        }
+
+        /* for (let v of obj) {
+            console.log(v);
+        } */
+
+
+
+
+        for (let v in str) {
+            console.log(v);
+        }
+
+        for (let v in arr) {
+            console.log(v);
+        }
+
+        for (let v in obj) {
+            console.log(v);
+        }
+    </script>
+</body>
+
+</html>

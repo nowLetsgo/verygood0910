@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['a', 'b', 'c', 'd'];
+        console.log(arr);
+
+        //封装一个iterator函数
+        function iterator(arr) {
+            let index = 0;
+            return {
+                next() {
+                    //判断数组是否遍历完成
+                    if (index < arr.length) {
+                        return {
+                            value: arr[index++],
+                            done: false
+                        }
+                    } else {
+                        return {
+                            value: undefined,
+                            done: true
+                        }
+                    }
+
+                }
+            }
+        }
+        const re = iterator(arr);
+        console.log(re);
+        console.log(re.next());
+        console.log(re.next());
+        console.log(re.next());
+        console.log(re.next());
+        console.log(re.next());
+        console.log(re.next());
+    </script>
+</body>
+
+</html>

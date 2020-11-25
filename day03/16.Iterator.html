@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Iterator:
+                - 只要一种数据部署了Iterator接口，我们称这个数据是可以被迭代的
+                - 只要这个类型原型对象上有Symbol.iterator属性，就说明部署了Iterator接口
+                
+                场景：
+                    解构赋值
+                    扩展运算符
+                    for of
+         */
+
+
+
+
+        const arr = ['a', 'b', 'c', 'd'];
+        console.log(arr);
+
+        console.log(arr[Symbol.iterator]())
+        const arrIterator = arr[Symbol.iterator]();
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+
+
+
+        const arrEntries = arr.entries();
+        console.log(arrEntries)
+        for (let v of arrEntries) {
+            console.log(v);
+            const [key, value] = v;
+            console.log(key, value)
+        }
+
+
+        const arrValues = arr.values();
+        console.log(arrValues)
+        for (let v of arrValues) {
+            console.log(v);
+        }
+    </script>
+</body>
+
+</html>
