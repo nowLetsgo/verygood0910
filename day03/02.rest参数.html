@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //求和函数
+        function add() {
+            /* 
+                arguments: 
+                    - 伪数组
+                    - 直接收集所有的实参
+            */
+            const re = Array.from(arguments).reduce(function (p, c) {
+                return p + c;
+            })
+            console.log(re);
+        }
+        add(1, 2, 3, 4, 5);
+
+
+
+        //rest参数，书写在形参中，接受参数，是一个数组
+
+        function add2(str, ...rest) {
+            console.log(rest);
+            const re = rest.reduce((p, c) => p + c);
+            console.log(re);
+        }
+        add2("hello", 1, 2, 3, 4, 5);
+    </script>
+</body>
+
+</html>

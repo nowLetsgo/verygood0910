@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* function fn(a, b) {
+            b = typeof b === 'undefined' || b === null ? "" : b;
+            console.log(a + b);
+        }
+        fn("hello", "world")
+        fn("hello", null) */
+
+
+        /* 
+            函数参数默认值：
+                只需要定义形参的时候，给函数参数一个默认值，当这个形参没有传递的时候，自动为这个默认值
+
+                函数参数默认值只能检测 不传递形参的情况 不能检测参数为null
+         */
+        function fn(a, b = "") {
+            console.log(a + b);
+        }
+
+        fn("hello", "world")
+        fn("hello")
+        // fn("hello", null)
+    </script>
+</body>
+
+</html>

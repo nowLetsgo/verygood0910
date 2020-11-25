@@ -86,10 +86,16 @@
         //代替some 检测里边有没有偶数，如果有则返回true
         /* const arr = [1, 2, 5, 7, 6, 2, 1];
         const re = arr.reduce(function (p, c) {
-            c % 2 === 0 ? p = true : p = false;
-            return p;
-
+            return p || c % 2 === 0;
         }, false);
+        console.log(re); */
+
+
+        //代替 every 判断所有的都是奇数   有一个是偶数就返回false
+        /* const arr2 = [1, 2, 5, 7, 6, 2, 1];
+        const re2 = arr2.reduce(function (p, c) {
+            return p && c % 2 !== 0;
+        }, true);
         console.log(re); */
     </script>
 </body>
