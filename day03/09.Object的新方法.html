@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Object.is():其实就是一个 ===,返回布尔值, 修复了NaN不等于NaN
+        */
+
+        console.log(Object.is(1, 1)); //true
+        console.log(Object.is({}, {})); //false
+        console.log(Object.is([], [])); //false
+        console.log(Object.is(NaN, NaN)); //true
+
+
+        /* 
+            Object.assign():合并对象
+                把所有的参数都合并给了第一个参数对象，并且把这个参数对象的地址值返回出去
+        
+        */
+
+        const obj1 = {
+            a: 1
+        }
+        const obj2 = {
+            b: 2
+        }
+        const obj3 = {
+            c: 3
+        }
+        /* const newObj = Object.assign(obj1, obj2, obj3);
+        console.log(newObj, obj1, obj2, obj3) */
+
+        //如果不想修改obj1？
+        const newObj = Object.assign({}, obj1, obj2, obj3)
+        console.log(newObj)
+    </script>
+</body>
+
+</html>

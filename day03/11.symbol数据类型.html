@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            symbol:第7种数据类型，标识独一无二的值 不能使用new实例化 直接调用即可
+            symbol是可以书写参数的，但是参数没有任何用途，只是用来识别
+         */
+
+        const sy1 = Symbol();
+        const sy2 = Symbol();
+        console.log(sy1);
+        console.log(sy2);
+        console.log(sy2 === sy1);
+        console.log(typeof sy1) //‘symbol’
+
+
+        /* 
+            用处：给数组扩展方法，用symbol标识防止重名
+        
+         */
+
+        //创建一个独一无二的key
+        const name = Symbol("name");
+        const hobby = Symbol("hobby");
+
+        //别人的对象
+        const obj = {
+            name: "lily",
+            sex: "nv",
+        }
+
+        //为了防止我们给别人的对象添加属性发生冲突，那么我们需要把设置的Symbol作用属性值设置进去
+        obj[name] = "laowang";
+        obj[hobby] = "吃饭";
+        console.log(obj)
+
+        console.log(obj[name]) //laowang
+        console.log(obj[hobby]) //吃饭
+
+
+        //没有给Symbol变量接到，那么就再拿不到了
+        obj[Symbol()] = "下课";
+        console.log(obj)
+        console.log(obj[Symbol()])
+
+
+
+
+        /* 
+            Symbol:
+                1.不能new调用
+                2.不能转数字
+                3.Symbol中的参数只是为了识别
+
+         */
+
+        console.log(String(Symbol())) //'Symbol()'
+        // console.log(Number(Symbol())) //不可以转
+        console.log(Boolean(Symbol())) //true
+
+
+        for (let key in obj) {
+            console.log(key)
+        }
+
+
+        //Object.getOwnPropertySymbols方法可以获取某个对象的所有的Symbol属性，并组合成数组
+
+        console.log(obj[Object.getOwnPropertySymbols(obj)[2]])
+    </script>
+</body>
+
+</html>

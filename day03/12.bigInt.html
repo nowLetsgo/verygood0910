@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            bigInt:作为第八种数据类型 代表大整数  可以提高js整数计算的精度和限制
+        
+         */
+
+
+        //只要js整数计算大于 2的53次方，则计算精度就会出问题
+        console.log(2 ** 53);
+        console.log(2 ** 53 + 1);
+        console.log(2 ** 53 + 2);
+        console.log(2 ** 53 + 3);
+
+        //只要js整数计算大于 2的1024次方  则不再计算 返回Infinity
+        console.log(2 ** 1024);
+        console.log(2 ** 1023);
+
+
+        //bigInt定义：再整数后边添加一个n即可
+        let num = 1n;
+        console.log(1n)
+        console.log(typeof num) //'bigint'
+
+        //bigInt不能 和 number类型混合计算
+        // console.log(1n + 1);
+        console.log(1n + 1n);
+        console.log(2n ** 20024n);
+        console.log(2n ** 20024n + 1n);
+        // console.log(10n ** 10000n);
+
+        //bigInt的类型转换和number类似
+        console.log(Number(1n)); //1
+        console.log(Number(2n ** 20024n)); //Infinity
+        console.log(Boolean(2n)); //Infinity
+        console.log(Boolean(0n)); //Infinity
+        console.log(String(1n)); //1
+        console.log(1n == 1); //true
+        console.log(1n === 1); //false
+    </script>
+</body>
+
+</html>
