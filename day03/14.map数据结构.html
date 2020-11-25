@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Map数据结构
+                - 实例化创建
+                - 类似于对象，但是对象是字符串-值结构，Map是值-值结构
+                - 也就是说Map的key值可以是任意类型
+         */
+
+
+        const map1 = new Map();
+        console.log(map1);
+
+
+        const obj = {
+            hello: "world"
+        };
+        const map2 = new Map([
+            //Map结构中 key值添加或者不添加引号是两种不同的东西 一个是字符串 一个是变量
+            ["name1", "lily"],
+            // [name1, "lucy"], //name1 is not defined  
+            [obj, "1101"],
+            [null, "1102"],
+            [undefined, "1102"],
+            [new Date(), "1102"],
+            [true, "1102"],
+        ]);
+        console.log(map2);
+
+
+        /* 
+            Map方法：
+                size：成员长度
+                set: 设置新值
+                get: 获取
+                has:判断是否存在
+                delete：删除某个值
+                clear：清空
+
+                entries、keys、values:遍历器对象
+        
+        
+         */
+
+        console.log(map2.size);
+
+        map2.set("hello", "world");
+        console.log(map2)
+
+
+        console.log(map2.get(obj))
+
+
+        console.log(map2.has(obj))
+
+
+        console.log(map2.delete(obj))
+        console.log(map2)
+
+        // map2.clear();
+        console.log(map2)
+
+
+        console.log(map2.entries())
+        console.log(map2.keys())
+        console.log(map2.values())
+
+
+        map2.forEach((item, key) => {
+            console.log(item, key)
+        })
+    </script>
+</body>
+
+</html>

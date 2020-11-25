@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Set 新增的数据结构
+                - 实例化调用
+                - Set的参数可以是一个数组 或者是一个具有iterator接口的数据
+        
+         */
+
+        const set1 = new Set();
+        console.log(set1);
+
+        //创建一个新的set  参数是一个数组
+        const set2 = new Set([1, 2, 3]);
+        console.log(set2);
+
+        //创建一个新的set 参数是一个字符串
+        const set3 = new Set("123");
+        console.log(set3);
+
+
+        //set的值是不允许重复的
+        const set4 = new Set([1, 4, 3, 1, 5, 4, 3, 6, 4]);
+        console.log(set4);
+
+
+
+        /* 
+            Set的方法：
+                add:添加
+                clear:清空set的所有内容
+                delete:删除某个值 参数是要删除的值
+                has:判断是否存在
+         */
+
+        set4.add(9); //添加成功
+        set4.add(4); //重复的添加不进去
+        console.log(set4);
+
+
+        //清空
+        // set4.clear();
+        // console.log(set4);
+
+        //删除某个值
+        const re1 = set4.delete(1)
+        console.log(set4); //删除成功 返回true  删除失败返回false
+        console.log(re1);
+
+        //has判断是否存在
+        const re2 = set4.has(4)
+        console.log(re2); //返回布尔值
+
+        //键值对 key 和 value 遍历器对象
+        console.log(set4.entries())
+        console.log(set4.keys())
+        console.log(set4.values())
+
+        //forEach遍历 (set结构 key和value是一致的)
+        set4.forEach((item, index) => {
+            console.log(item, index)
+        })
+
+
+
+        //set用法 数组去重
+        const arr = [1, 2, 3, 1, 2, 3, 4, 3, 1, 6, 4];
+
+        const newArr = [...new Set(arr)];
+        console.log(newArr)
+    </script>
+</body>
+
+</html>
