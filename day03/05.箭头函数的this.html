@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            箭头函数没有自己的this，他的this就是他所在函数的this
+         */
+
+        /* const fn1 = () => console.log(this);
+        fn1(); //window */
+
+
+        // document.onclick = fn1; //window
+
+        /* const obj = {
+            name: "lily",
+            do: fn1
+        }
+        obj.do() //window */
+
+
+        /* const obj2 = {
+            name: "laowang",
+            do: () => {
+                console.log(this); //window
+                setTimeout(() => {
+                    console.log(this); //window
+                })
+            }
+        }
+        obj2.do(); */
+
+
+        /* const obj3 = {
+            name: "laowang",
+            do: () => {
+                console.log(this); //window
+                setTimeout(function () {
+                    console.log(this); //window
+                })
+            }
+        }
+        obj3.do(); */
+
+
+        /* const obj4 = {
+            name: "laowang",
+            do: function () {
+                console.log(this); //obj4
+                setTimeout(function () {
+                    console.log(this); //window
+                })
+            }
+        }
+        obj4.do(); */
+
+
+        /* const obj5 = {
+            name: "laowang",
+            do: function () {
+                console.log(this); //obj5
+                setTimeout(() => {
+                    console.log(this); //obj5
+                })
+            }
+        }
+        obj5.do(); */
+
+
+        /* const obj6 = {
+            name: "laowang",
+            do: function () {
+                console.log(this); //window
+                setTimeout(() => {
+                    console.log(this); //window
+                })
+            }
+        }
+        const fn2 = obj6.do;
+        fn2(); */
+    </script>
+</body>
+
+</html>

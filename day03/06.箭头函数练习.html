@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //练习1
+        /*  const person = [{
+                user: "小张",
+                sex: "男"
+            },
+            {
+                user: "小李",
+                sex: "女"
+            },
+            {
+                user: "小黄",
+                sex: "男"
+            },
+            {
+                user: "小王",
+                sex: "女"
+            },
+            {
+                user: "小柳",
+                sex: "男"
+            },
+            {
+                user: "小熊",
+                sex: "女"
+            },
+        ]; */
+
+        //请得到所有性别为女的用户的名字，并放在数组中
+        /* const newP = person.filter(item => item.sex === '女')
+        console.log(newP);
+
+        const re = newP.map(item => item.user)
+        console.log(re)
+
+
+        //请得到所有性别为女的用户的名字，并放在数组中
+        const re = person.reduce((p, c)=>{
+            if (c.sex === "女") {
+                p.push(c.user)
+            }
+            return p;
+        }, []);
+        console.log(re); */
+
+
+
+
+        //代替 every 判断所有的都是奇数   有一个是偶数就返回false
+        const arr2 = [1, 2, 5, 7, 6, 2, 1];
+        const re2 = arr2.reduce((p, c) => p && c % 2 !== 0, true);
+        console.log(re);
+    </script>
+</body>
+
+</html>

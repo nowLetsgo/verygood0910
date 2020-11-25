@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            1.箭头函数不能被当做构造函数 也就是不能使用new调用
+        
+         */
+
+        /* const fn1 = (name) => {
+            this.name = name;
+        }
+        new fn1("laowang"); //fn1 is not a constructor */
+
+
+        /* 
+            箭头函数没有arguments对象 只有rest参数
+        
+        
+         */
+
+        const fn2 = (...rest) => {
+            console.log(rest)
+            console.log(arguments); //arguments is not defined
+        }
+        fn2(1, 2, 3, 4, 5)
+    </script>
+</body>
+
+</html>

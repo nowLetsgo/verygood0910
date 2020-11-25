@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = "xiaowang";
+        const age = 12;
+        const obj = {
+            //当对象的属性和值（值是一个变量）同名的时候 可以直接写一个key就可以了
+            name: name,
+            age: age,
+
+            //所有的方法都可以省略function简写（注意 不是箭头函数）
+            do: function () {
+                console.log(this);
+            }
+        }
+        console.log(obj)
+        obj.do()
+
+
+        //简写结果
+        const obj2 = {
+            name,
+            age,
+            do() {
+                console.log(this);
+            }
+        }
+        console.log(obj2)
+        obj2.do()
+    </script>
+</body>
+
+</html>

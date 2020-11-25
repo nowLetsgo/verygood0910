@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            1.es5中，对象的key一定是一个字符串格式的，不能书写变量
+            2.可以使用es6提供的属性名表达式(给key加中括号)来把key书写为一个变量
+            3.就算是变量，最后也会转换成字符串格式
+            4.属性名表达式，不仅仅能够只书写变量，还可以书写一些表达式（比如三元）,不能书写语句
+        */
+        function fn1() {
+            return "didi";
+        }
+        const type1 = "content-type";
+        const type2 = true;
+        const mimeType = {
+            //把变量的值解析出来，如果不是字符串也会调用toString方法转换成字符串
+            [type1]: "text/json;charset=utf-8",
+
+            [type2 ? "hello" : "gun"]: "world",
+
+            [fn1()]: "dada",
+
+            [type2 + 1 + 2 + 3]: "jisuan"
+        }
+        console.log(mimeType);
+    </script>
+</body>
+
+</html>
