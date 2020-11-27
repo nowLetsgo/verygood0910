@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p1 = new Promise((resolve, reject) => {
+            console.log("开始请求a数据");
+            setTimeout(() => {
+                try {
+                    // throw new Error("err:抛出错误");
+                    console.log("a数据请求成功");
+                    const userID = [1, 2, 3, 4];
+                    //拿到数据以后不要直接操作数据 而是调用resolve方法 把数据和状态返回出去 再使用
+                    //避免了逻辑嵌套过深
+                    resolve(userID);
+                } catch (e) {
+                    console.log("a数据请求失败");
+                    reject(e);
+                }
+
+            }, 1000)
+        })
+
+
+        /* 
+            then方法
+                - 当promise对象返回成功或者失败的时候就会调用,then其实也是一个异步代码
+                - 用法1：
+                    - then方法中书写两个函数,第一个函数是成功处理回调函数，第二个函数的失败处理回调函数
+                    - then方法中函数的参数 就是成功或失败的返回promise对象的值[PromiseResult]
+
+                - 用法2(常用):
+                    - then中只书写一个函数，代表成功函数，失败的状态由catch接受，then不再负责
+                    - 目的是为了区分开成功和失败的逻辑
+         */
+        /* p1.then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.log(err);
+        }); */
+
+        p1.then((data) => {
+            console.log(data);
+        })
+
+        console.log("end");
+    </script>
+</body>
+
+</html>

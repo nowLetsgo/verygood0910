@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p1 = new Promise((resolve, reject) => {
+            console.log("开始请求a数据");
+            setTimeout(() => {
+                try {
+                    // throw new Error("err:抛出错误");
+                    console.log("a数据请求成功");
+                    const userID = [1, 2, 3, 4];
+                    resolve(userID);
+                } catch (e) {
+                    console.log("a数据请求失败");
+                    reject(e);
+                }
+
+            }, 1000)
+        })
+
+        const p2 = p1.then((data) => {
+            console.log(data);
+            // throw new Error("err");
+            // return "我是then函数中回调函数的返回值"
+            return new Promise((resolve, reject) => {
+                console.log("开始请求b数据");
+                setTimeout(() => {
+                    try {
+                        throw new Error("err:抛出错误");
+                        console.log("b数据请求成功");
+                        const userID = [7, 8, 9, 10];
+                        resolve(userID);
+                    } catch (e) {
+                        console.log("b数据请求失败");
+                        reject(e);
+                    }
+
+                }, 1000)
+            })
+        })
+        console.log(p2);
+
+        /* 
+            then方法的返回值：
+                - then的返回值一定是一个promise对象
+                - 默认没有执行到then，只是定义了then的时候，then的返回值是一个pending状态的promise对象
+                - 当then中没有书写返回值,then的返回值是一个fulfilled成功状态的promise对象，promise状态的值是undefined
+                - 当then中书写了return一个不是promise对象的值，那么then方法的返回值是fulfilled成功状态，值是return的内容
+                - 当then中的代码出现了错误，则直接返回rejected失败状态promise对象，并且值是错误信息
+                - 当then中返回的是一个promise 对象，则then的返回值是这个promise对象的
+         */
+
+        console.log("end");
+    </script>
+</body>
+
+</html>

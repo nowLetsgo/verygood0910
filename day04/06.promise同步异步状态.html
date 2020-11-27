@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //start 进入promise执行 end 异步代码
+        console.log("start");
+        const p1 = new Promise((resolve, reject) => {
+            //promise是处理异步代码的，但是promise内的代码执行是同步的
+            console.log("进入promise执行");
+            setTimeout(() => {
+                console.log("异步代码");
+                resolve();
+            }, 1000)
+        })
+        console.log("end");
+    </script>
+</body>
+
+</html>
