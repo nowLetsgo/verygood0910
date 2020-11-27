@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装一个父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.eat = function () {
+            console.log("吃饭")
+        }
+
+        //封装一个子类
+        function Student(study, name, age) {
+            //构造函数继承
+            Person.call(this, name, age)
+            this.study = study;
+        }
+        //原型链继承
+        Student.prototype = new Person();
+        Student.prototype.constructor = Student;
+        Student.prototype.hobby = function () {
+            console.log("nodejs从入门到放弃")
+        }
+    </script>
+</body>
+
+</html>

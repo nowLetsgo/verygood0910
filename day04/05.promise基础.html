@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise 是ES6提出的异步编程解决方案，将异步代码用同步的写法表达出来，避免回调地狱
+         */
+
+        console.log(Promise); //构造函数
+
+        //可以查看Promise的静态方法：all、allSettled、race、reject、resolve、any
+        //可以查看Promise的原型对象方法：then 、catch、finally
+        console.dir(Promise);
+
+
+
+        /* 
+            Promise的使用：
+                - 实例化
+                - 参数是一个函数,函数的参数是两个回调函数 resolve reject
+                - 当promise中的异步代码执行成功，我们就调用resolve方法，如果执行失败则调用reject方法
+        
+            Promise实例化得到一个promise对象
+                - promise对象中有两个属性PromiseState，PromiseResult
+                - PromiseState是当前promise对象的状态
+                - PromiseResult是当前promise返回值，promise成功，则拿到的是resolve方法的参数，promise失败则拿到的是reject的参数，其他状态是undefined
+
+
+            Promise的三种状态:
+                - pending:正在执行中，代表promise内部还没有调用成功或失败函数
+                - fulfille/resolved:代表promise是成功状态
+                - rejected:代表promise是失败状态
+
+         */
+
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                try {
+                    throw new Error('你写错了');
+                    console.log("成功");
+                    const data = {
+                        name: "laowang"
+                    };
+                    resolve(data);
+                } catch (e) {
+                    console.log("失败");
+                    reject(e);
+                }
+            }, 1000)
+        })
+        console.log(p1);
+    </script>
+</body>
+
+</html>

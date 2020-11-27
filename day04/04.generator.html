@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //generator是一个状态机生成器，里边包含了很多的状态，这些状态使用yield来定义
+        //generator函数返回一个对象，调用next方法会执行一个yield状态
+        /* function* gen() {
+            console.log(1);
+            yield console.log(2);
+            yield console.log(3);
+            yield console.log(4);
+            yield console.log(5);
+        }
+        //generator调用 不会执行函数内的内容
+        const g1 = gen();
+        //当调用next方法之后，就会执行一个yield后的命令
+        g1.next();
+        g1.next();
+        g1.next(); */
+
+        /* for (let a of g1) {
+            console.log(a);
+        } */
+
+
+
+        //先请求a数据 再请求b数据 再请求c数据
+        setTimeout(() => {
+            console.log("a数据请求成功");
+            setTimeout(() => {
+                console.log("b数据请求成功");
+                setTimeout(() => {
+                    console.log("c数据请求成功");
+                }, 1000)
+            }, 1000)
+        }, 1000)
+
+
+        //使用generator解决上边的异步编程回调地狱的问题
+        function* requsetData() {
+            console.log(this)
+            yield setTimeout(() => {
+                console.log("a数据请求成功");
+                re1.next();
+            }, 1000);
+            yield setTimeout(() => {
+                console.log("b数据请求成功");
+                re1.next();
+            }, 1000);
+            yield setTimeout(() => {
+                console.log("c数据请求成功");
+            }, 1000);
+        }
+        const re1 = requsetData();
+        re1.next();
+    </script>
+</body>
+
+</html>

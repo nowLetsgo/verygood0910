@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age
+            }
+            eat() {
+                console.log("吃饭")
+            }
+        }
+
+
+        //如果子类是空的，则书写完extends 直接完全继承
+        // class Student extends Person {}
+
+
+        //ES6中继承的子类中，如果使用构造函数constructor()那么就必须使用super()方法初始化，这样下面才可以调用this关键字。
+        //super()只能用在子类的构造函数之中，用在其他地方就会报错,这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。
+        class Student extends Person {
+            constructor(think, name, age) {
+                super(name, age);
+                this.think = think;
+            }
+        }
+        Student.prototype.say = function () {
+            console.log("xiake");
+        }
+        console.log(new Student("chouyan", "xiaowang", 12))
+    </script>
+</body>
+
+</html>

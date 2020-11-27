@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* //class仅仅是一个语法糖 其实就是一个构造函数
+        class Person {
+
+        }
+        console.log(Person)
+        console.log(typeof Person) */
+
+
+
+        class Person {
+            //类中有一个constructor方法，当实例化调用类的时候，会自动调用该方法,参数也会传递进来
+            constructor(name, age) {
+                this.name = name;
+                this.age = age
+            }
+
+            //直接在class中书写的方法都是原型对象的方法
+            eat() {
+                console.log("吃饭")
+            }
+
+            //如果直接在class中书写属性 这个属性是实例化对象的，但是很少这样书写，因为没办法传参
+            study = "js";
+
+            //static定义的方法或属性 是静态方法或静态属性
+            static do() {
+                console.log("cry~")
+            }
+        }
+
+        const p1 = new Person("laowang", 18);
+        console.log(p1)
+        console.log(p1.eat)
+        console.log(Person.do)
+        console.log(p1.constructor)
+    </script>
+</body>
+
+</html>

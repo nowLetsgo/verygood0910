@@ -51,6 +51,24 @@
         for (let v of arrValues) {
             console.log(v);
         }
+
+
+        const obj = {
+            name: "laowamg",
+            age: 18,
+            firend: {
+                name: "xiaozhang",
+                age: 12
+            },
+            do() {
+                alert(1);
+            }
+        }
+        const obj2 = {
+            ...obj
+        };
+        console.log(obj2.firend === obj.firend)
+        console.log(obj2.do === obj.do)
     </script>
 </body>
 
