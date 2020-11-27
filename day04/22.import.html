@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.onclick = function () {
+            import("./01.js")
+                .then(() => {
+                    console.log("引入成功")
+                })
+                .catch(() => {
+                    console.log("引入失败")
+                })
+
+        }
+    </script>
+</body>
+
+</html>
