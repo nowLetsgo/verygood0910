@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 请求a数据，请求成功在请求b数据，请求成功在请求c数据
+        async function requestData() {
+            const re = await new Promise((resolve, reject) => {
+                console.log("正在请求a数据。。。")
+                setTimeout(() => {
+                    console.log("a数据加载成功")
+                    const data = {
+                        name: "lily"
+                    }
+                    resolve(data);
+                }, 1000)
+            })
+
+            await new Promise((resolve, reject) => {
+                console.log("正在请求b数据。。。")
+                setTimeout(() => {
+                    try {
+                        throw new Error("b数据异常")
+                        console.log("b数据加载成功")
+                        const data = {
+                            age: "18"
+                        }
+                        Object.assign(re, data)
+                        resolve(re);
+                    } catch (e) {
+                        reject(e);
+                    }
+                }, 1000)
+            })
+
+            const finallyData = await new Promise((resolve, reject) => {
+                console.log("正在请求c数据。。。")
+                setTimeout(() => {
+                    console.log("c数据加载成功")
+                    const data = {
+                        sex: "nv"
+                    }
+                    Object.assign(data, re)
+                    resolve(data);
+                }, 1000)
+            })
+
+            return finallyData;
+        }
+
+
+        // console.log(requestData())
+        requestData().then((data) => {
+            console.log(data);
+        }).catch((e) => {
+            console.log("数据异常")
+        })
+    </script>
+</body>
+
+</html>

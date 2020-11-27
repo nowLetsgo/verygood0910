@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义正则字面量方式：
+        const reg = /\d{4,}/gi;
+
+        //大写字母开头，后边跟6个-8个数字
+        const reg1 = /^[A-Z]\d{6,8}$/gi;
+
+        const str = "L128411111";
+
+
+
+
+        /* 
+            test 方法检测字符串中是否有符合规则的
+        */
+        console.log(reg1.test(str))
+
+
+
+        const str2 = "12b 12 1235 135   1234 4    ";
+        const reg3 = /\s+/gi;
+        console.log(str2.replace(reg3, ""));
+    </script>
+</body>
+
+</html>

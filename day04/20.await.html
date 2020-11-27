@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            - await 需要在async函数中书写，代表等待的意思
+            - await 能够真正等待的是promise对象 其他的一概不等
+            - 只有await等待的promise成功或者失败，才会进行下一个动作，如果是pending状态，则一直等待不动
+
+
+            await返回值：
+                - 如果await等待的是一个成功的promise对象，则awiat的返回值就是这个promise对象的值
+                - 如果await等待到的是一个失败的promise对象，则直接退出async函数，async函数会返回一个失败的promise对象
+                - 如果await等待的不是一个promise对象，则await的返回值就是await等待的值
+
+                - 如果await等待的promise对象没有失败，则async的返回值将会一直是成功状态的promise对象，值是函数return的值
+
+                
+
+        
+        */
+        const fn = async function () {
+            console.log(1); //并不是等待的内容，所以不会是异步代码
+            const re = await new Promise((resolve, reject) => {
+                console.log(2); //同步代码
+                resolve("hello");
+            });
+            console.log(re);
+            console.log(3); //异步代码
+
+            return new Promise((resolve, reject) => {
+                resolve("world");
+            });
+            // const re2 = await "good";
+            // console.log(re2);
+        }
+        const result = fn();
+        console.log(result)
+    </script>
+</body>
+
+</html>

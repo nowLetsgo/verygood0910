@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = "去你mmp,你TMD的mmp,你dy的";
+        const reg = /mmp|TMD|dy/gi;
+
+        //replace方法就是替换匹配到的词
+        console.log(str.replace(reg, "**"))
+
+
+        const reg1 = /mmp/gi;
+        console.log(str.split(reg1));
+
+
+        const reg2 = /[a-z]{2,3}/gi;
+        console.log(str.match(reg2))
+        console.log(str.search(reg2))
+    </script>
+</body>
+
+</html>

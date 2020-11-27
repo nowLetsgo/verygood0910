@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(1)
+        //async把一个函数声明为了一个异步函数，配合await使用
+        //async返回一个promise对象
+        //默认情况下 async函数返回一个成功的promise对象，promise对象的值是 函数的返回值
+
+        //为什么async会返回一个promise对象呢？
+        // async函数 通过Promise.resolve()方法把 函数的返回值封装并返回一个promise对象
+        const fn = async function () {
+            // console.log(2)
+            return "hello"
+        }
+        const result = fn();
+        console.log(result)
+        console.log(3)
+    </script>
+</body>
+
+</html>
