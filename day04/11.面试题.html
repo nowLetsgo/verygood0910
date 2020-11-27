@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 2 11 4 5 7 10
+        console.log(111); //同步代码
+        const promise = new Promise((resolve, reject) => {
+            // reject(); //失败 但是不会影响当前promise代码的运行
+            resolve();
+            console.log(222); //同步
+        });
+        promise
+            .then(() => {
+                console.log(333);
+                return new Promise((resolve) => {
+                    reject();
+                });
+            })
+            .catch(() => {
+                console.log(444);
+            })
+            .then(() => {
+                console.log(555);
+                return new Promise((reject, resolve) => {
+                    // reject();
+                    resolve();
+                });
+            })
+            .catch(() => {
+                console.log(666);
+                throw new Error("报错了~");
+            })
+            .then(() => {
+                console.log(777);
+                throw new Error("报错了~");
+            })
+            .then(() => console.log(888))
+            .then(() => console.log(999))
+            .catch(() => console.log(101010));
+        console.log("11 11 11"); //同步
+    </script>
+</body>
+
+</html>

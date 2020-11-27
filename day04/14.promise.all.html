@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise.all:
+                - 可以接收多个promise实例化对象
+                - 当all中的promise对象没有执行完成并且没有失败的promise对象，则返回值一直是一个peding状态
+                - 如果有一个失败了，就不会向下继续请求了，直接返回失败的promise对象，则返回一个失败的promise对象，他的值就是其中失败的那个promise对象的值
+                - 当参数的promise对象都成功，则返回成功promise对象
+                    - 其中 promise对象的状态是fulfilled promise对象的值是一个数组，分别是所有成功promise对象的值
+        
+        */
+
+        let num = 0;
+        const p1 = new Promise((resolve, reject) => {
+            console.log("开始请求a数据")
+            setTimeout(() => {
+                console.log("a数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                resolve(data);
+            }, 1000)
+        })
+
+        const p2 = new Promise((resolve, reject) => {
+            console.log("开始请求b数据")
+            setTimeout(() => {
+                console.log("b数据请求成功");
+                const data = {
+                    age: "10"
+                }
+                resolve(data);
+            }, 3500)
+        })
+
+        const p3 = new Promise((resolve, reject) => {
+            console.log("开始请求c数据")
+            setTimeout(() => {
+                console.log("c数据请求成功");
+                const data = {
+                    sex: "nv"
+                }
+                resolve(data);
+            }, 2000)
+        })
+
+        const result = Promise.all([p1, p2, p3]);
+        console.log(result)
+
+        result.then((data) => {
+            console.log("所有的都请求成功了");
+            //合并值
+            const result = data.reduce((p, c) => Object.assign(p, c), {})
+            console.log(result);
+        })
+    </script>
+</body>
+
+</html>

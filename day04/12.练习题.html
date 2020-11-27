@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 需求： setTimeout模拟发送请求
+        // 请求a数据， 请求成功在请求b数据， 请求成功在请求c数据
+
+        new Promise((resolve, reject) => {
+                console.log("开始请求a数据")
+                setTimeout(() => {
+                    console.log("a数据请求成功");
+                    const data = {
+                        name: "laowang"
+                    }
+                    resolve(data);
+                }, 1000)
+            })
+            .then((mes) => {
+                return new Promise((resolve, reject) => {
+                    console.log("开始请求b数据")
+                    setTimeout(() => {
+                        console.log("b数据请求成功");
+                        const data = {
+                            sex: "nv"
+                        }
+                        //把a数据和b数据合并 再返回
+                        Object.assign(data, mes);
+                        resolve(data);
+                    }, 1000)
+                })
+            })
+            .then((mes) => {
+                return new Promise((resolve, reject) => {
+                    console.log("开始请求c数据")
+                    setTimeout(() => {
+                        console.log("c数据请求成功");
+                        const data = {
+                            age: 18
+                        }
+                        //把a数据和b数据合并 再返回
+                        Object.assign(data, mes);
+                        resolve(data);
+                    }, 1000)
+                })
+            })
+            .then((mes) => {
+                //拿到了完整的数据，可以在这里进行各种操作 比如DOM操作
+                console.log(mes)
+            })
+    </script>
+</body>
+
+</html>

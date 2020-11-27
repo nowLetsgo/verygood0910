@@ -25,6 +25,7 @@
             }, 1000)
         })
 
+        //then返回失败的情况：1.失败的promise调用then 2.then中报错了 3.then返回了一个失败的promise对象
         const p2 = p1.then((data) => {
             console.log(data);
             // throw new Error("err");
@@ -55,7 +56,8 @@
                 - 当then中书写了return一个不是promise对象的值，那么then方法的返回值是fulfilled成功状态，值是return的内容
                 - 当then中的代码出现了错误，则直接返回rejected失败状态promise对象，并且值是错误信息
                 - 当then中返回的是一个promise 对象，则then的返回值是这个promise对象的
-         */
+                - 当调用then方法的promise对象是失败的，则then不会执行自己的内容，而是直接返回一个失败的promise对象，里边的值就是刚才失败promise对象的值
+        */
 
         console.log("end");
     </script>

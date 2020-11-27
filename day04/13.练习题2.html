@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 需求： setTimeout模拟发送请求
+        // 同时请求a数据 b数据 c数据 请求成功以后返回提示
+
+        let num = 0;
+        new Promise((resolve, reject) => {
+            console.log("开始请求a数据")
+            setTimeout(() => {
+                console.log("a数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                resolve(data);
+                num++;
+                if (num === 3) {
+                    console.log("全部请求完毕")
+                }
+            }, 1000)
+        })
+
+        new Promise((resolve, reject) => {
+            console.log("开始请求b数据") 
+            setTimeout(() => {
+                console.log("b数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                resolve(data);
+                num++;
+                if (num === 3) {
+                    console.log("全部请求完毕")
+                }
+            }, 3500)
+        })
+
+        new Promise((resolve, reject) => {
+            console.log("开始请求c数据")
+            setTimeout(() => {
+                console.log("c数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                resolve(data);
+                num++;
+                if (num === 3) {
+                    console.log("全部请求完毕")
+                }
+            }, 2000)
+        })
+    </script>
+</body>
+
+</html>

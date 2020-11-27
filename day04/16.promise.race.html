@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise.race:
+                - 返回一个promise对象
+                - 无论race中的promise对象最先的那个返回的失败还是成功，都会停止执行，返回当前最先完成的promise对象
+                
+        */
+
+        const p1 = new Promise((resolve, reject) => {
+            console.log("开始请求a数据")
+            setTimeout(() => {
+                console.log("a数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                resolve(data);
+            }, 1000)
+        })
+
+        const p2 = new Promise((resolve, reject) => {
+            console.log("开始请求b数据")
+            setTimeout(() => {
+                console.log("b数据请求成功");
+                const data = {
+                    age: "10"
+                }
+                reject(data);
+            }, 3500)
+        })
+
+        const p3 = new Promise((resolve, reject) => {
+            console.log("开始请求c数据")
+            setTimeout(() => {
+                console.log("c数据请求成功");
+                const data = {
+                    sex: "nv"
+                }
+                reject(data);
+            }, 2000)
+        })
+
+        const result = Promise.race([p1, p2, p3]);
+        console.log(result)
+    </script>
+</body>
+
+</html>

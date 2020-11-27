@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise.allsettled:
+                - 可以接收多个promise实例化对象
+                - 无论allsettled中所有的promise对象成功还是失败，都会返回一个成功的promise对象
+                - 返回的promise对象的值是一个数组，数组中是所有promise实例化对象执行完成后的状态和值
+                
+        */
+
+        let num = 0;
+        const p1 = new Promise((resolve, reject) => {
+            console.log("开始请求a数据")
+            setTimeout(() => {
+                console.log("a数据请求成功");
+                const data = {
+                    name: "laowang"
+                }
+                reject(data);
+            }, 1000)
+        })
+
+        const p2 = new Promise((resolve, reject) => {
+            console.log("开始请求b数据")
+            setTimeout(() => {
+                console.log("b数据请求成功");
+                const data = {
+                    age: "10"
+                }
+                reject(data);
+            }, 3500)
+        })
+
+        const p3 = new Promise((resolve, reject) => {
+            console.log("开始请求c数据")
+            setTimeout(() => {
+                console.log("c数据请求成功");
+                const data = {
+                    sex: "nv"
+                }
+                reject(data);
+            }, 2000)
+        })
+
+        const result = Promise.allSettled([p1, p2, p3]);
+        console.log(result)
+    </script>
+</body>
+
+</html>
